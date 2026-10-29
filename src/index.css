@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-ivory font-sans text-forest antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-teal;
+    outline-style: solid;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .card {
+    @apply rounded-3xl border border-forest/10 bg-white/80 shadow-soft;
+  }
+  .glass {
+    @apply rounded-2xl border border-white/70 bg-white/55 shadow-soft backdrop-blur-md;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-forest/10 bg-white px-3 py-1 text-xs font-medium text-forest/80;
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-forest text-ivory shadow-soft hover:-translate-y-0.5 hover:bg-teal-dark hover:shadow-lift;
+  }
+  .btn-secondary {
+    @apply btn border border-forest/20 bg-white/70 text-forest hover:-translate-y-0.5 hover:border-teal hover:text-teal-dark;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-teal;
+  }
+}
+
+/* Soft organic backdrop used by the hero */
+.leaf-shape {
+  border-radius: 62% 38% 55% 45% / 48% 58% 42% 52%;
+}
